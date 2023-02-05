@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    New Post
+{% endblock %}
+
+{% block main %}
+    <form action="/new" method="post">
+        <textarea id="summernote" placeholder="new" name="editordata">Explain your circumstance or conflict</textarea>
+        <script>
+            $(document).ready(function() {
+                $('#summernote').summernote();
+            });
+        </script>
+        <br>
+        <br>
+        <label>Write options people can vote from</label>
+        <br>
+        <div class="form-group">
+            <textarea class="form-control" id="option1" name="first_opt" placeholder="Option1" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="option2" name="second_opt" placeholder="Option2" rows="1"></textarea>
+        </div>
+        <div class="form-group">
+            <textarea class="form-control" id="option3" name="third_opt" placeholder="Option3" rows="1"></textarea>
+        </div>
+        <button class="btn btn-primary" type="submit">Create Post</button>
+    </form>
+{% endblock %}

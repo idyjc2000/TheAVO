@@ -1,0 +1,32 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    My Votes
+{% endblock %}
+
+{% block main %}
+    <h1>My Voted Posts</h1>
+    <h4>Go see which option you've voted</h4>
+    <br>
+    {% for row in rows %}
+        <div class="post">
+            <br>
+            <div>Post #{{ row["id"] }}</div>
+            <br>
+            <div class="text">{{ row["text"] }}</div>
+            <br>
+            <pre>Option 1: {{ row["option1"] }}      votes: <image class="avo" src="/static/favicon.ico"/> {{ row["option1_count"] }}</pre>
+            <pre>Option 2: {{ row["option2"] }}      votes: <image class="avo" src="/static/favicon.ico"/> {{ row["option2_count"] }}</pre>
+            <pre>Option 3: {{ row["option3"] }}      votes: <image class="avo" src="/static/favicon.ico"/> {{ row["option3_count"] }}</pre>
+            <form action="/feed" method="post">
+                <div class="form-group">
+                    <input autocomplete="off" autofocus class="form-control" name="part" placeholder="Type post number and press" type="number">
+                </div>
+                <button class="btn btn-primary" type="submit">Go to post {{ row["id"] }}</button>
+            </form>
+        </div>
+
+        <br>
+        <br>
+    {% endfor %}
+{% endblock %}
